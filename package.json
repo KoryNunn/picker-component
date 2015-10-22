@@ -1,0 +1,36 @@
+{
+  "name": "picker-component",
+  "version": "1.0.0",
+  "description": "A flexible component to use where you might use a `<select>`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchExample": "watchify example/index.js -o example/index.browser.js -d",
+    "buildExample": "browserify -g uglifyify example/index.js --noparse clone > example/index.browser.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crel": "^2.1.8",
+    "defaultcss": "^1.1.1",
+    "doc-js": "^1.3.1",
+    "fastn": "^2.5.0",
+    "modal-component": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "crel": "^2.1.8",
+    "uglifyify": "^3.0.1"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KoryNunn/picker-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KoryNunn/picker-component/issues"
+  },
+  "homepage": "https://github.com/KoryNunn/picker-component#readme"
+}
