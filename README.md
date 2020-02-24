@@ -8,7 +8,7 @@ Built with `fastn.js`
 
 ## Settings
 
-```
+```js
 {
     options: array or object of options
     value: optional, any type
@@ -26,7 +26,7 @@ Built with `fastn.js`
 
 ## Standalone
 
-```
+```js
 // Create the picker
 var picker = createPicker({
         options: ['foo', 'bar', 'baz']
@@ -43,7 +43,7 @@ document.body.appendChild(picker.element);
 
 ## Fastn component
 
-```
+```js
 var fastn = require('fastn')({
     ... other components...
     picker: require('picker-component/pickerComponent')
@@ -54,7 +54,7 @@ var picker = fastn('picker', { options... });
 
 ## Inserting
 
-```
+```js
 someDomNode.appendChild(picker.element);
 ```
 
@@ -68,7 +68,7 @@ The below properties are getter/setters, and event emitters.
 
 Example usage of value property:
 
-```
+```js
 // retrieve value
 picker.value(); // returns value
 
@@ -83,7 +83,7 @@ picker.value.on('change', function(value){
 
 ### Developing
 
-```
+```sh
 npm i
 
 npm start
