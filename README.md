@@ -80,3 +80,13 @@ picker.value.on('change', function(value){
     // Do something
 });
 ```
+
+### Developing
+
+```
+npm i
+
+npm start
+```
+
+Then open [localhost:8080]
