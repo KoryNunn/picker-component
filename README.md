@@ -89,4 +89,4 @@ npm i
 npm start
 ```
 
-Then open [localhost:8080]
+Then open (localhost:8080)
