@@ -238,7 +238,6 @@ module.exports = function(fastn, picker, type, settings, children){
     picker.value.on('change', updateValue);
     pickerModel.on('value|*', function(value){
         picker.value(settings.pickValue(value));
-        picker.emit('change', value);
     });
 
     picker.show.on('change', pickerModel.set.bind(pickerModel, 'show'));

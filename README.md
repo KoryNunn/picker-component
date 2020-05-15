@@ -13,13 +13,28 @@ Built with `fastn.js`
     options: array or object of options
     value: optional, any type
     multiple: boolean, optional, default false
-    pickValue: optional, function(item){
+
+    pickValue: optional, function(item){ // A function to pick a "value" for each item, to match it against the pickers "value"
         return anything
 
         eg:
 
         return item.id
     },
+
+    itemTemplate: function(model, scope, select, renderItem){ // A template function for rendering items in the pick list
+        var item = renderItem(model.get('item.something'));
+
+        item.on('click', select);
+
+        return item;
+    },
+
+    currentTemplate: function(model){ // A template function for rendering the currently selected value
+        var selectedValue = model.get('item.something');
+        return crel('div', selectedValue ? 'You picked ' + model.get('item.something') : 'Pick a value');
+    },
+
     class: optional, string or array of strings
 }
 ```
@@ -90,3 +105,7 @@ npm start
 ```
 
 Then open http://localhost:8080
+
+## Major changes
+
+v2: No longer emits change event when updating the components "value" progmatically. More alligned to how native web elements work.
