@@ -58,6 +58,8 @@ window.onload = function(){
         console.log(value);
     });
 
+    picker2.value(picker2.options()[1])
+
     crel(document.body,
         picker2.element
     );
