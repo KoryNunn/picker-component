@@ -50,7 +50,7 @@ module.exports = function(fastn, picker, type, settings, children){
     if(!settings.currentTemplate){
         settings.currentTemplate = function(model, scope){
             return fastn.binding('item', function(item){
-                return item || 'Pick a value';
+                return (item && picker.multiple() ? item.length && item : false) || 'Pick a value';
             });
         };
     }
@@ -117,10 +117,13 @@ module.exports = function(fastn, picker, type, settings, children){
                     pickerModel.remove('value', index);
                 }
 
+                picker.emit('change', pickerModel.get('value'))
+
                 return;
             }
 
             pickerModel.set('value', model.get('item'));
+            picker.emit('change', model.get('item'))
 
             // Delay closing to allow for animations.
             setTimeout(function(){
@@ -153,7 +156,7 @@ module.exports = function(fastn, picker, type, settings, children){
             },
             fastn('templater', {
                 'class':'current',
-                data: fastn.binding('value').attach(pickerModel),
+                data: fastn.binding('value|*').attach(pickerModel),
                 template: settings.currentTemplate
             })
         )
