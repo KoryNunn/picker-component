@@ -10,7 +10,7 @@ window.onload = function(){
             options: ['foo', 'bar', 'baz']
         });
 
-    defaultPicker.value.on('change', function(value){
+    defaultPicker.on('change', function(value){
         console.log(value);
     });
 
@@ -54,7 +54,7 @@ window.onload = function(){
         }
     });
 
-    picker2.value.on('change', function(value){
+    picker2.on('change', function(value){
         console.log(value);
     });
 
@@ -86,7 +86,35 @@ window.onload = function(){
         })
         .render();
 
-    fastnPicker.value.on('change', function(value){
+    fastnPicker.on('change', function(value){
+        console.log(value);
+    });
+
+    crel(document.body,
+        fastnPicker.element
+    );
+
+    // fastn.js usage multiple
+
+    var fastn = require('fastn')({
+        text: require('fastn/textComponent'),
+        _generic: require('fastn/genericComponent'),
+        list: require('fastn/listComponent'),
+        templater: require('fastn/templaterComponent'),
+        modal: require('modal-component/modalComponent'),
+        picker: require('../pickerComponent')
+    });
+
+    var fastnPicker = fastn('picker', {
+            options: fastn.binding('items'),
+            multiple: true
+        })
+        .attach({
+            items: ['foo', 'bar', 'baz']
+        })
+        .render();
+
+    fastnPicker.on('change', function(value){
         console.log(value);
     });
 
